@@ -7,11 +7,11 @@ const clearBtn = document.getElementById('clear');
 const formInputFilter = document.querySelector('.form-input-filter');
 let isEdit = false;
 const displayItems = () => {
-    updateUi();
     const saveToStorage = getItemFromLocalStorage();
     saveToStorage.map((items) => {
         addNewItem(items);
     });
+    updateUi();
 };
 const onAddNewItem = (e) => {
     var _a;
