@@ -69,7 +69,7 @@ const getItemFromLocalStorage = () => {
   if (localStorage.getItem('list') === null) {
     saveToStorage = [];
   } else {
-    saveToStorage = JSON.parse(localStorage.getItem('list')!);
+    saveToStorage = JSON.parse(localStorage.getItem('list') as string);
   }
 
   return saveToStorage;
