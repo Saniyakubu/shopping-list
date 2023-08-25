@@ -67,8 +67,10 @@ const removeFromLocalStorage = (item) => {
     console.log(saveToStorage);
 };
 const filterItems = (e) => {
+    var _a, _b;
     const li = listItem.querySelectorAll('li');
-    const text = e.target.value.toLowerCase();
+    const text = (_b = (_a = e.target) === null || _a === void 0 ? void 0 : _a.value) === null || _b === void 0 ? void 0 : _b.toLowerCase();
+    console.log(text);
     li.forEach((liEl) => {
         var _a, _b;
         const liElText = (_b = (_a = liEl.firstChild) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.toLowerCase();

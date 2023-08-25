@@ -83,9 +83,11 @@ const removeFromLocalStorage = (item: string) => {
   console.log(saveToStorage);
 };
 
-const filterItems = (e: any) => {
+const filterItems = (e: Event) => {
   const li: NodeListOf<HTMLLIElement> = listItem.querySelectorAll('li');
-  const text = e.target.value.toLowerCase();
+
+  const text = (e.target as HTMLInputElement)?.value?.toLowerCase();
+  console.log(text);
 
   li.forEach((liEl) => {
     const liElText = liEl.firstChild?.textContent?.toLowerCase();
@@ -116,7 +118,7 @@ const removeItem = (e: MouseEvent): void => {
   if (item.className === 'fa-solid fa-xmark') {
     console.log(item.parentElement?.parentElement?.firstChild?.textContent);
     removeFromLocalStorage(
-      item.parentElement?.parentElement?.firstChild?.textContent!
+      item.parentElement?.parentElement?.firstChild?.textContent as string
     );
     item.parentElement?.parentElement?.remove();
   } else if (item.className === 'remove-item btn-link text-red') {
@@ -138,9 +140,9 @@ const removeItem = (e: MouseEvent): void => {
 const editItem = () => {
   if (isEdit) {
     const li = listItem.querySelector('.edit-mode');
-    Input.value = li?.firstChild?.textContent?.trim()!;
+    Input.value = li?.firstChild?.textContent?.trim() as string;
     li?.remove();
-    removeFromLocalStorage(li?.firstChild?.textContent!);
+    removeFromLocalStorage(li?.firstChild?.textContent as string);
     console.log(li?.firstChild);
   }
 };
