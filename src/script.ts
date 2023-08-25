@@ -9,6 +9,7 @@ const formInputFilter = document.querySelector(
 
 let isEdit: boolean = false;
 const displayItems = () => {
+  updateUi();
   const saveToStorage = getItemFromLocalStorage();
   saveToStorage.map((items) => {
     addNewItem(items);
