@@ -27,7 +27,7 @@ const onAddNewItem = (e: SubmitEvent): void => {
   if (isEdit) {
     const li = listItem.querySelector('.edit-mode');
     li?.remove();
-    removeFromLocalStorage(li?.firstChild?.textContent!);
+
     addNewItem(Input.value);
     li?.classList.remove();
     isEdit = false;
@@ -140,7 +140,7 @@ const editItem = () => {
     const li = listItem.querySelector('.edit-mode');
     Input.value = li?.firstChild?.textContent?.trim()!;
     li?.remove();
-
+    removeFromLocalStorage(li?.firstChild?.textContent!);
     console.log(li?.firstChild);
   }
 };

@@ -14,7 +14,6 @@ const displayItems = () => {
     updateUi();
 };
 const onAddNewItem = (e) => {
-    var _a;
     e.preventDefault();
     const inputValue = Input.value;
     if (!inputValue) {
@@ -24,7 +23,6 @@ const onAddNewItem = (e) => {
     if (isEdit) {
         const li = listItem.querySelector('.edit-mode');
         li === null || li === void 0 ? void 0 : li.remove();
-        removeFromLocalStorage((_a = li === null || li === void 0 ? void 0 : li.firstChild) === null || _a === void 0 ? void 0 : _a.textContent);
         addNewItem(Input.value);
         li === null || li === void 0 ? void 0 : li.classList.remove();
         isEdit = false;
@@ -117,11 +115,12 @@ const removeItem = (e) => {
     updateUi();
 };
 const editItem = () => {
-    var _a, _b;
+    var _a, _b, _c;
     if (isEdit) {
         const li = listItem.querySelector('.edit-mode');
         Input.value = (_b = (_a = li === null || li === void 0 ? void 0 : li.firstChild) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.trim();
         li === null || li === void 0 ? void 0 : li.remove();
+        removeFromLocalStorage((_c = li === null || li === void 0 ? void 0 : li.firstChild) === null || _c === void 0 ? void 0 : _c.textContent);
         console.log(li === null || li === void 0 ? void 0 : li.firstChild);
     }
 };
